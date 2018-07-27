@@ -1,0 +1,271 @@
+@include font-face(MissionGothicRegular,'/assets/fonts/missiongothicregular');
+@include font-face(ThomasHeadlineCEBold,'/assets/fonts/thomasheadlinecebold');
+@include font-face(ThomasHeadlineCEBlack,'/assets/fonts/thomasheadlineceblack');
+
+.ttt-base-font {
+  font-family: MissionGothicRegular;
+  color: $tc-warm-grey;
+  size: 16px;
+  line-height: 22px;
+}
+
+.ttt {
+
+  position: relative;
+
+  pre {
+    line-height: normal;
+    white-space: normal;
+    padding: 10px;
+    background-color: rgba(250,235,215,0.8);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    .css-data{
+      border: 1px solid rosybrown;
+      padding: 4px;
+    }
+  }
+
+  .bg-grey{
+    color: $off-white;
+    background-color: $tc-warm-grey;
+  }
+
+  .logo-combo{
+    white-space: nowrap;
+  }
+
+  .pad-t-10{
+    padding-top: 10px;
+  }
+  .pad-r-10{
+    padding-right: 10px;
+  }
+  .pad-b-10{
+    padding-bottom: 10px;
+  }
+  .pad-l-10{
+    padding-left: 10px;
+  }
+
+  .wrap {
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @extend .ttt-base-font;
+
+  h1 { @include heading-1; }
+  h2 { @include heading-2; }
+  h3 { @include heading-3; }
+  h4 { @include heading-4; }
+
+  header{
+    .ttt-logo{
+      max-width: 245px;
+    }
+  }
+
+  .btn{
+    background-color: $tc-curacao;
+    border: 1px solid $tc-curacao;
+    border-radius: 4px;
+    color: $off-white;
+    display: block;
+    font-size: 18px;
+    line-height: 24px;
+    height: auto;
+    margin: 10px auto;
+    padding: 16px 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    &--sm{
+      margin: 4px auto;
+      padding: 4px 14px;
+      font-size: 14px;
+    }
+
+    @include breakpoint(phablet) {
+      display: inline-block;
+    }
+
+    &:hover{
+      background-color: darken($tc-curacao, 5%);
+      border: 1px solid darken($tc-curacao, 5%);
+      color: $off-white;
+      text-decoration: none;
+    }
+    &--hollow{
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      color: $tc-warm-grey;
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        color: $tc-warm-grey;
+      }
+
+      &--white{
+        color: $off-white;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+      }
+
+    }
+  }
+
+  /* #### COMPONENT STYLES START #### */
+  .messages{
+    background-color: $tc-melagrana;
+    color: $off-white;
+    ol{
+      margin:0;
+      padding: 0;
+      list-style: none;
+      li{
+        margin:0;
+        padding: 0;
+      }
+      li:not(:last-child) {
+        border-bottom: 1px dotted $off-white;
+      }
+    }
+  }
+  /* #### COMPONENT STYLES END #### */
+
+  footer{
+    .condor-logo{
+      width: 140px;
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 5px;
+    }
+    .tca-vert-neg-logo{
+      width: 80px;
+      display: inline-block;
+      vertical-align: middle;
+      border-right: 1px solid $off-white;
+      padding-right: 10px;
+    }
+  }
+
+  small{
+    display:block;
+    font-size: 0.7em;
+    line-height: 1.5em;
+  }
+
+
+  /* BREAKPOINT STYLES */
+
+  /*desktop / laptop / tablet / phablet / mobileonly*/
+
+  .right{
+    justify-content: right;
+    text-align: right;
+  }
+
+  .right-xs{
+    @include breakpoint(mobileonly) {
+      justify-content: right;
+      text-align: right;
+    }
+  }
+  .right-sm{
+    @include breakpoint(phablet) {
+      justify-content: right;
+      text-align: right;
+    }
+  }
+  .right-md {
+    @include breakpoint(laptop) {
+      justify-content: right;
+      text-align: right;
+    }
+  }
+  .right-lg{
+    @include breakpoint(desktop) {
+      justify-content: right;
+      text-align: right;
+    }
+  }
+
+  .left{
+    justify-content: left;
+    text-align: left;
+  }
+
+  .left-xs{
+    @include breakpoint(mobileonly) {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+  .left-sm{
+    @include breakpoint(phablet) {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+  .left-md {
+    @include breakpoint(laptop) {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+  .left-lg{
+    @include breakpoint(desktop) {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+
+  .hidden{
+    display: none;
+
+    &.show-xxs{
+      @include breakpoint(mobileonly) {
+        display: inherit;
+      }
+    }
+
+    &.show-xs{
+      @include breakpoint(phablet) {
+        display: inherit;
+      }
+    }
+
+    &.show-sm{
+      @include breakpoint(tablet) {
+        display: inherit;
+      }
+    }
+    &.show-md {
+      @include breakpoint(laptop) {
+        display: inherit;
+      }
+    }
+    &.show-lg{
+      @include breakpoint(desktop) {
+        display: inherit;
+      }
+    }
+  }
+
+
+
+
+}
+
+
